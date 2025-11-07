@@ -29,7 +29,10 @@ gen resale_prices_in_thousands = resale_price/1000
 gen average_storey = storey_range_num * 3 + 2
 
 ***Regression 
-reg resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey i.town_num i.year
+reg resale_prices_in_thousands remaining_lease_years i.town_num i.year
+reg resale_prices_in_thousands floor_area_sqm i.town_num i.year
+reg resale_prices_in_thousands average_storey i.town_num i.year
+
 
 ****Summary statistics  
 *data description: mean, variance, max and mean
