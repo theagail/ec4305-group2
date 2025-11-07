@@ -1,0 +1,368 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2/session1_regresslogs.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 7 Nov 2025, 13:42:11
+
+{com}. do "/var/folders/s2/5drs3rl92nn7gpqtxrj5wys00000gr/T//SD98596.000000"
+{txt}
+{com}. *set up the directory on your pc or mac
+. /*global dir1="/Users/bianxiaochen/Downloads/EC4305"
+> */
+. global dir1 "`c(pwd)'" 
+{txt}
+{com}. 
+. cd "$dir1"
+{res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2
+{txt}
+{com}. 
+. *import data
+. import delimited ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv
+{res}{txt}(encoding automatically selected: ISO-8859-1)
+{text}(11 vars, 218,319 obs)
+
+{com}. 
+. *check missing data 
+. misstable summarize
+{txt}(variables nonmissing or string)
+
+{com}. describe
+
+{txt}Contains data
+ Observations:{res}       218,319                  
+{txt}    Variables:{res}            11                  
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:month          }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:town           }{txt}{bind: str15   }{bind:{txt}%15s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:flat_type      }{txt}{bind: str16   }{bind:{txt}%16s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:block          }{txt}{bind: str4    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:street_name    }{txt}{bind: str20   }{bind:{txt}%20s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:storey_range   }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:floor_area_sqm }{txt}{bind: float   }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:flat_model     }{txt}{bind: str22   }{bind:{txt}%22s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:lease_commenc~e}{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:remaining_lease}{txt}{bind: str18   }{bind:{txt}%18s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:resale_price   }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+{txt}
+{com}. codebook
+
+{txt}{hline}
+{res}month{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str7{txt})
+
+{col 10}Unique values: {res}106{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"2019-02"
+{col 25}"2020-12"
+{col 25}"2022-07"
+{col 25}"2024-03"
+
+{txt}{hline}
+{res}town{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str15{txt})
+
+{col 10}Unique values: {res}26{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"BUKIT PANJANG"
+{col 25}"JURONG WEST"
+{col 25}"PUNGGOL"
+{col 25}"TAMPINES"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}flat_type{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str16{txt})
+
+{col 10}Unique values: {res}7{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 13}Tabulation: Freq.  Value
+{col 20}{res}        80{col 32}"1 ROOM"
+{col 20}     4,376{col 32}"2 ROOM"
+{col 20}    51,949{col 32}"3 ROOM"
+{col 20}    92,481{col 32}"4 ROOM"
+{col 20}    53,619{col 32}"5 ROOM"
+{col 20}    15,730{col 32}"EXECUTIVE"
+{col 20}        84{col 32}"MULTI-GENERATION"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}block{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str4{txt})
+
+{col 10}Unique values: {res}2,743{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"1E"
+{col 25}"313C"
+{col 25}"470"
+{col 25}"658B"
+
+{txt}{hline}
+{res}street_name{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str20{txt})
+
+{col 10}Unique values: {res}576{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"CANBERRA CRES"
+{col 25}"HOUGANG AVE 8"
+{col 25}"POTONG PASIR AVE 1"
+{col 25}"TAMPINES ST 71"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}storey_range{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str8{txt})
+
+{col 10}Unique values: {res}17{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"04 TO 06"
+{col 25}"04 TO 06"
+{col 25}"07 TO 09"
+{col 25}"10 TO 12"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}floor_area_sqm{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}31{txt},{res}366.7{txt}]{col 55}Units: {res}.1
+{col 10}{txt}Unique values: {res}186{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 7:96.8018}
+{txt}{col 14}Std. dev.: {res}{ralign 7:24.0231}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:67}{ralign 10:      81}{ralign 10:      93}{ralign 10:     112}{ralign 10:     126}
+
+{txt}{hline}
+{res}flat_model{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str22{txt})
+
+{col 10}Unique values: {res}21{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"Improved"
+{col 25}"Model A"
+{col 25}"Model A"
+{col 25}"New Generation"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}lease_commence_date{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}int{txt})
+
+{col 18}Range: [{res}1966{txt},{res}2022{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}57{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 7:1996.41}
+{txt}{col 14}Std. dev.: {res}{ralign 7:14.2841}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:1978}{ralign 10:    1985}{ralign 10:    1997}{ralign 10:    2012}{ralign 10:    2016}
+
+{txt}{hline}
+{res}remaining_lease{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str18{txt})
+
+{col 10}Unique values: {res}692{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"60 years 08 months"
+{col 25}"68 years 04 months"
+{col 25}"78 years 04 months"
+{col 25}"91 years 07 months"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}resale_price{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}double{txt})
+
+{col 18}Range: [{res}140000{txt},{res}1658888{txt}]{col 55}Units: {res}.01
+{col 10}{txt}Unique values: {res}4,505{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 6:522194}
+{txt}{col 14}Std. dev.: {res}{ralign 6:185251}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 6:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 6:315000}{ralign 10:  385000}{ralign 10:  490000}{ralign 10:  628000}{ralign 10:  778000}
+{txt}
+{com}. 
+. *Feature Engineering 
+. gen year = real(substr(month, 1, 4))
+{txt}
+{com}. 
+. format year %9.0g
+{txt}
+{com}. 
+. gen remaining_lease_years = real(substr(remaining_lease,1,2))
+{txt}
+{com}. 
+. encode(storey_range), gen(storey_range_num)
+{txt}
+{com}. 
+. encode(town), gen(town_num)
+{txt}
+{com}. 
+. gen resale_prices_in_thousands = resale_price/1000
+{txt}
+{com}. 
+. gen average_storey = storey_range_num * 3 + 2
+{txt}
+{com}. 
+. ***Regression 
+. reg resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey i.town_num i.year
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   218,319
+{txt}{hline 13}{c +}{hline 34}   F(36, 218282)   = {res} 38448.61
+{txt}       Model {c |} {res} 6.4716e+09        36   179767846   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.0206e+09   218,282  4675.53594   {txt}R-squared       ={res}    0.8638
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.8638
+{txt}       Total {c |} {res} 7.4922e+09   218,318  34317.9573   {txt}Root MSE        =   {res} 68.378
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}resale_prices_in_th~s{col 23}{c |} Coefficient{col 35}  Std. err.{col 47}      t{col 55}   P>|t|{col 63}     [95% con{col 76}f. interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}floor_area_sqm {c |}{col 23}{res}{space 2} 5.161605{col 35}{space 2} .0065284{col 46}{space 1}  790.64{col 55}{space 3}0.000{col 63}{space 4} 5.148809{col 76}{space 3}   5.1744
+{txt}remaining_lease_years {c |}{col 23}{res}{space 2} 5.420369{col 35}{space 2} .0131214{col 46}{space 1}  413.09{col 55}{space 3}0.000{col 63}{space 4} 5.394652{col 76}{space 3} 5.446087
+{txt}{space 7}average_storey {c |}{col 23}{res}{space 2} 5.084412{col 35}{space 2} .0273188{col 46}{space 1}  186.11{col 55}{space 3}0.000{col 63}{space 4} 5.030868{col 76}{space 3} 5.137957
+{txt}{space 21} {c |}
+{space 13}town_num {c |}
+{space 15}BEDOK  {c |}{col 23}{res}{space 2}-21.16172{col 35}{space 2} .9678872{col 46}{space 1}  -21.86{col 55}{space 3}0.000{col 63}{space 4}-23.05875{col 76}{space 3}-19.26468
+{txt}{space 14}BISHAN  {c |}{col 23}{res}{space 2}  94.8716{col 35}{space 2} 1.330646{col 46}{space 1}   71.30{col 55}{space 3}0.000{col 63}{space 4} 92.26357{col 76}{space 3} 97.47964
+{txt}{space 9}BUKIT BATOK  {c |}{col 23}{res}{space 2}-108.8572{col 35}{space 2} 1.033831{col 46}{space 1} -105.29{col 55}{space 3}0.000{col 63}{space 4}-110.8835{col 76}{space 3}-106.8309
+{txt}{space 9}BUKIT MERAH  {c |}{col 23}{res}{space 2} 88.51784{col 35}{space 2}  1.04741{col 46}{space 1}   84.51{col 55}{space 3}0.000{col 63}{space 4} 86.46494{col 76}{space 3} 90.57074
+{txt}{space 7}BUKIT PANJANG  {c |}{col 23}{res}{space 2} -154.212{col 35}{space 2} 1.082216{col 46}{space 1} -142.50{col 55}{space 3}0.000{col 63}{space 4}-156.3331{col 76}{space 3}-152.0909
+{txt}{space 9}BUKIT TIMAH  {c |}{col 23}{res}{space 2} 190.5683{col 35}{space 2} 3.061363{col 46}{space 1}   62.25{col 55}{space 3}0.000{col 63}{space 4} 184.5681{col 76}{space 3} 196.5685
+{txt}{space 8}CENTRAL AREA  {c |}{col 23}{res}{space 2} 165.0106{col 35}{space 2} 1.815406{col 46}{space 1}   90.89{col 55}{space 3}0.000{col 63}{space 4} 161.4525{col 76}{space 3} 168.5688
+{txt}{space 7}CHOA CHU KANG  {c |}{col 23}{res}{space 2}-198.1645{col 35}{space 2} 1.030131{col 46}{space 1} -192.37{col 55}{space 3}0.000{col 63}{space 4}-200.1835{col 76}{space 3}-196.1454
+{txt}{space 12}CLEMENTI  {c |}{col 23}{res}{space 2} 29.51729{col 35}{space 2}  1.22119{col 46}{space 1}   24.17{col 55}{space 3}0.000{col 63}{space 4} 27.12379{col 76}{space 3} 31.91079
+{txt}{space 13}GEYLANG  {c |}{col 23}{res}{space 2} 35.96766{col 35}{space 2} 1.180353{col 46}{space 1}   30.47{col 55}{space 3}0.000{col 63}{space 4}  33.6542{col 76}{space 3} 38.28112
+{txt}{space 13}HOUGANG  {c |}{col 23}{res}{space 2}-92.27047{col 35}{space 2}  .988282{col 46}{space 1}  -93.36{col 55}{space 3}0.000{col 63}{space 4}-94.20747{col 76}{space 3}-90.33346
+{txt}{space 9}JURONG EAST  {c |}{col 23}{res}{space 2}-95.45626{col 35}{space 2} 1.258519{col 46}{space 1}  -75.85{col 55}{space 3}0.000{col 63}{space 4}-97.92293{col 76}{space 3} -92.9896
+{txt}{space 9}JURONG WEST  {c |}{col 23}{res}{space 2}-156.9591{col 35}{space 2} .9378893{col 46}{space 1} -167.35{col 55}{space 3}0.000{col 63}{space 4}-158.7973{col 76}{space 3}-155.1208
+{txt}{space 5}KALLANG/WHAMPOA  {c |}{col 23}{res}{space 2} 57.02175{col 35}{space 2} 1.109128{col 46}{space 1}   51.41{col 55}{space 3}0.000{col 63}{space 4} 54.84789{col 76}{space 3} 59.19561
+{txt}{space 7}MARINE PARADE  {c |}{col 23}{res}{space 2} 121.6961{col 35}{space 2} 2.003916{col 46}{space 1}   60.73{col 55}{space 3}0.000{col 63}{space 4} 117.7685{col 76}{space 3} 125.6238
+{txt}{space 11}PASIR RIS  {c |}{col 23}{res}{space 2}-120.8047{col 35}{space 2} 1.159498{col 46}{space 1} -104.19{col 55}{space 3}0.000{col 63}{space 4}-123.0773{col 76}{space 3}-118.5321
+{txt}{space 13}PUNGGOL  {c |}{col 23}{res}{space 2}-145.6181{col 35}{space 2}  .969279{col 46}{space 1} -150.23{col 55}{space 3}0.000{col 63}{space 4}-147.5179{col 76}{space 3}-143.7184
+{txt}{space 10}QUEENSTOWN  {c |}{col 23}{res}{space 2} 99.43213{col 35}{space 2} 1.157711{col 46}{space 1}   85.89{col 55}{space 3}0.000{col 63}{space 4} 97.16305{col 76}{space 3} 101.7012
+{txt}{space 11}SEMBAWANG  {c |}{col 23}{res}{space 2}-192.5331{col 35}{space 2} 1.154061{col 46}{space 1} -166.83{col 55}{space 3}0.000{col 63}{space 4} -194.795{col 76}{space 3}-190.2711
+{txt}{space 12}SENGKANG  {c |}{col 23}{res}{space 2} -160.626{col 35}{space 2} .9369001{col 46}{space 1} -171.44{col 55}{space 3}0.000{col 63}{space 4}-162.4623{col 76}{space 3}-158.7897
+{txt}{space 11}SERANGOON  {c |}{col 23}{res}{space 2}-1.225542{col 35}{space 2} 1.320238{col 46}{space 1}   -0.93{col 55}{space 3}0.353{col 63}{space 4}-3.813176{col 76}{space 3} 1.362092
+{txt}{space 12}TAMPINES  {c |}{col 23}{res}{space 2}-59.62891{col 35}{space 2} .9335773{col 46}{space 1}  -63.87{col 55}{space 3}0.000{col 63}{space 4} -61.4587{col 76}{space 3}-57.79912
+{txt}{space 11}TOA PAYOH  {c |}{col 23}{res}{space 2}  53.6872{col 35}{space 2} 1.091995{col 46}{space 1}   49.16{col 55}{space 3}0.000{col 63}{space 4} 51.54691{col 76}{space 3} 55.82748
+{txt}{space 11}WOODLANDS  {c |}{col 23}{res}{space 2}-178.4661{col 35}{space 2} .9379216{col 46}{space 1} -190.28{col 55}{space 3}0.000{col 63}{space 4}-180.3044{col 76}{space 3}-176.6278
+{txt}{space 14}YISHUN  {c |}{col 23}{res}{space 2}-125.8234{col 35}{space 2} .9322024{col 46}{space 1} -134.97{col 55}{space 3}0.000{col 63}{space 4}-127.6505{col 76}{space 3}-123.9963
+{txt}{space 21} {c |}
+{space 17}year {c |}
+{space 16}2018  {c |}{col 23}{res}{space 2} -2.36902{col 35}{space 2} .6670902{col 46}{space 1}   -3.55{col 55}{space 3}0.000{col 63}{space 4}  -3.6765{col 76}{space 3} -1.06154
+{txt}{space 16}2019  {c |}{col 23}{res}{space 2}-.7184088{col 35}{space 2} .6626687{col 46}{space 1}   -1.08{col 55}{space 3}0.278{col 63}{space 4}-2.017223{col 76}{space 3} .5804052
+{txt}{space 16}2020  {c |}{col 23}{res}{space 2} 10.91267{col 35}{space 2} .6550791{col 46}{space 1}   16.66{col 55}{space 3}0.000{col 63}{space 4} 9.628734{col 76}{space 3} 12.19661
+{txt}{space 16}2021  {c |}{col 23}{res}{space 2} 60.71654{col 35}{space 2} .6244223{col 46}{space 1}   97.24{col 55}{space 3}0.000{col 63}{space 4} 59.49269{col 76}{space 3} 61.94039
+{txt}{space 16}2022  {c |}{col 23}{res}{space 2} 116.6442{col 35}{space 2} .6354566{col 46}{space 1}  183.56{col 55}{space 3}0.000{col 63}{space 4} 115.3987{col 76}{space 3} 117.8897
+{txt}{space 16}2023  {c |}{col 23}{res}{space 2} 152.4244{col 35}{space 2} .6411965{col 46}{space 1}  237.72{col 55}{space 3}0.000{col 63}{space 4} 151.1677{col 76}{space 3} 153.6811
+{txt}{space 16}2024  {c |}{col 23}{res}{space 2} 197.1715{col 35}{space 2} .6307901{col 46}{space 1}  312.58{col 55}{space 3}0.000{col 63}{space 4} 195.9351{col 76}{space 3} 198.4078
+{txt}{space 16}2025  {c |}{col 23}{res}{space 2} 238.3761{col 35}{space 2} .6706164{col 46}{space 1}  355.46{col 55}{space 3}0.000{col 63}{space 4} 237.0617{col 76}{space 3} 239.6905
+{txt}{space 21} {c |}
+{space 16}_cons {c |}{col 23}{res}{space 2}-446.9477{col 35}{space 2} 1.276531{col 46}{space 1} -350.13{col 55}{space 3}0.000{col 63}{space 4}-449.4497{col 76}{space 3}-444.4457
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ****Summary statistics  
+. *data description: mean, variance, max and mean
+. sum resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+resale_pri~s {c |}{res}    218,319    522.1936    185.2511        140   1658.888
+{txt}floor_area~m {c |}{res}    218,319     96.8018     24.0231         31      366.7
+{txt}remaining_~s {c |}{res}    218,319    73.83445    14.20983         40         97
+{txt}average_st~y {c |}{res}    218,319    11.76839    5.940957          5         53
+{txt}
+{com}. 
+. 
+. *pairwise correlation, covariance estimates etc)
+. pwcorr resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+
+             {txt}{c |} resale~s floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+resale_pri~s {c |} {res}  1.0000 
+{txt}floor_area~m {c |} {res}  0.5743   1.0000 
+{txt}remaining_~s {c |} {res}  0.3056   0.1091   1.0000 
+{txt}average_st~y {c |} {res}  0.3424  -0.0142   0.2729   1.0000 
+{txt}
+{com}. 
+. *covariance Matrix 
+. correlate resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey, covariance
+{txt}(obs=218,319)
+
+             {c |} resale~s floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+resale_pri~s {c |}{res}    34318
+{txt}floor_area~m {c |}{res}  2555.99  577.109
+{txt}remaining_~s {c |}{res}  804.417  37.2362  201.919
+{txt}average_st~y {c |}{res}  376.883 -2.03163  23.0416   35.295
+
+{txt}
+{com}. matrix C = r(C)    // stores covariance matrix in C
+{txt}
+{com}. 
+. *correlation matrix 
+. correlate resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+{txt}(obs=218,319)
+
+             {c |} resale~s floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+resale_pri~s {c |}{res}   1.0000
+{txt}floor_area~m {c |}{res}   0.5743   1.0000
+{txt}remaining_~s {c |}{res}   0.3056   0.1091   1.0000
+{txt}average_st~y {c |}{res}   0.3424  -0.0142   0.2729   1.0000
+
+{txt}
+{com}. matrix R = r(C)
+{txt}
+{com}. 
+. * Excluding sq metre, remaining_lease_years is found to have the largest covariance with resale price, while average storey has the highest correlation 
+. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2/session1_regresslogs.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 7 Nov 2025, 13:42:33
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
