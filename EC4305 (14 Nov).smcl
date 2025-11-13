@@ -1,0 +1,179 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/tianyuan/Downloads/ec4305.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Nov 2025, 23:51:00
+
+{com}. {smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/tianyuan/Downloads/ec4305.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Nov 2025, 23:52:04
+
+{com}. do "/var/folders/pt/qpg_p1n106xfzjb3s96ym35c0000gn/T//SD29726.000000"
+{txt}
+{com}. //turn date into numerical value 
+. use "bitcoin_gld.dta", clear
+{txt}
+{com}. gen daily_date = date(date, "YMD") // Replace "MDY" with your actual date format (e.g., "DMY", "YMD")
+{txt}
+{com}. sort daily_date
+{txt}
+{com}. generate week = _n
+{txt}
+{com}. tsset week
+{res}
+{p 0 15 2}{txt:Time variable: }{res:week}{txt:, }{res:{bind:1}}{txt: to }{res:{bind:356}}{p_end}
+{txt}{col 9}Delta: {res}1 unit
+{txt}
+{com}. dfuller week
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:355}
+{txt}Variable: {res}week{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}          .       -3.452       -2.876       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}1.0000{txt}.
+
+{com}. 
+. //find log differences 
+. gen lg_bitcoin = log(bitcoin)
+{txt}
+{com}. gen lg_gld = log(gld)
+{txt}
+{com}. gen return_btc = D.lg_bitcoin
+{txt}(1 missing value generated)
+
+{com}. gen return_gld = D.lg_gld
+{txt}(1 missing value generated)
+
+{com}. dfuller return_btc
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:354}
+{txt}Variable: {res}return_btc{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -16.629       -3.452       -2.876       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. dfuller return_gld
+
+{txt}Dickey–Fuller test for unit root{col 43}Number of obs  = {res}{ralign 3:354}
+{txt}Variable: {res}return_gld{txt}{col 43}Number of lags = {res}{ralign 3:0}
+
+{txt}H0: Random walk without drift, d = 0
+
+{col 40}Dickey–Fuller
+{col 20}Test{col 30}{hline 8} critical value {hline 9}
+              statistic           1%           5%          10%
+{hline 62}
+ Z(t)       {res}    -19.969       -3.452       -2.876       -2.570
+{txt}{hline 62}
+MacKinnon approximate {it:p}-value for Z(t) = {res}0.0000{txt}.
+
+{com}. 
+. sum _all
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}date {c |}{res}          0
+{txt}{space 5}bitcoin {c |}{res}        356    40792.31    31895.24   3464.013   123513.5
+{txt}{space 2}bitcoinvol {c |}{res}        356    2.33e+11    1.23e+11   3.69e+10   7.67e+11
+{txt}{space 9}gld {c |}{res}        356    189.7114     53.0265     120.37     388.99
+{txt}{space 6}gldvol {c |}{res}        356    4.36e+07    2.15e+07   1.36e+07   1.53e+08
+{txt}{hline 13}{c +}{hline 57}
+{space 2}daily_date {c |}{res}        356     22805.5    720.3881      21563      24048
+{txt}{space 8}week {c |}{res}        356       178.5    102.9126          1        356
+{txt}{space 2}lg_bitcoin {c |}{res}        356     10.2558    .9181693   8.150183   11.72411
+{txt}{space 6}lg_gld {c |}{res}        356    5.212585    .2477878    4.79057   5.963553
+{txt}{space 2}return_btc {c |}{res}        355    .0094932    .0834503  -.4078903   .2361422
+{txt}{hline 13}{c +}{hline 57}
+{space 2}return_gld {c |}{res}        355    .0031351    .0209982  -.0949421   .0830965
+{txt}
+{com}. correlate return_btc return_gld, covariance 
+{txt}(obs=355)
+
+             {c |} return~c return~d
+{hline 13}{c +}{hline 18}
+  return_btc {c |}{res}  .006964
+  {txt}return_gld {c |}{res}  .000242  .000441
+
+{txt}
+{com}. matrix C = r(C)
+{txt}
+{com}. correlate return_btc return_gld
+{txt}(obs=355)
+
+             {c |} return~c return~d
+{hline 13}{c +}{hline 18}
+  return_btc {c |}{res}   1.0000
+  {txt}return_gld {c |}{res}   0.1382   1.0000
+
+{txt}
+{com}. matrix R = r(C)
+{txt}
+{com}. 
+. //test for normality 
+. swilk return_btc return_gld
+
+                   {txt}Shapiro–Wilk W test for normal data
+
+    Variable {c |}        Obs{col 33}W{col 45}V{col 55}z       Prob>z
+{hline 13}{c +}{hline 54}
+  return_btc {c |} {res}       355    0.96019      9.852     5.413    0.00000
+  {txt}return_gld {c |} {res}       355    0.98100      4.702     3.663    0.00012
+{txt}
+{com}. 
+. //found that neither bitcoin or gold returns follows normal distribution 
+. 
+. histogram return_gld, frequency normal 
+{txt}(bin={res}18{txt}, start={res}-.09494209{txt}, width={res}.00989103{txt})
+{res}{txt}
+{com}. histogram return_btc, frequency normal 
+{txt}(bin={res}18{txt}, start={res}-.40789032{txt}, width={res}.03577958{txt})
+{res}{txt}
+{com}. 
+. //generate U using the empirical CDF 
+. 
+. sort bitcoin
+{txt}
+{com}. gen u_bitcoin = (_n - 0.5) / _N
+{txt}
+{com}. sort gld
+{txt}
+{com}. gen u_gld = (_n - 0.5) / _N
+{txt}
+{com}. 
+. 
+. 
+. //Scatterplot of integral transformation (to check cdf shape)
+. scatter u_returnbtc returnbtc, msymbol(o) mcolor(blue) title("Integral transformed data") ytitle("U = > F_X(X)") xtitle("Bitcoin")
+{err}variable {bf}u_returnbtc{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. {smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/tianyuan/Downloads/ec4305.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 Nov 2025, 23:53:58
+
+{com}. 
