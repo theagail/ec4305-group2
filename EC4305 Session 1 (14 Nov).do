@@ -33,4 +33,4 @@ gen u_gld = (_n - 0.5) / _N
 
 //Scatterplot of integral transformation (to check cdf shape)
 scatter u_returnbtc return_btc, msymbol(o) mcolor(blue) title("Integral transformed data") ytitle("U = > F_X(X)") xtitle("Bitcoin")
-scatter u_returngld return_gld, msymbol(o) mcolor(blue) title("Integral transformed data") ytitle("U = > F_X(X)") xtitle("Bitcoin")
+scatter u_returngld return_gld, msymbol(o) mcolor(blue) title("Integral transformed data") ytitle("U = > F_X(X)") xtitle("Gold")
