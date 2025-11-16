@@ -40,6 +40,7 @@ figure;
 scatter(u_t(:,1), u_t(:,2), 'filled');
 title('Simulated t Copula');
 
+
 figure;
 scatter(u_clayton(:,1), u_clayton(:,2), 'filled');
 title('Simulated Clayton Copula');
