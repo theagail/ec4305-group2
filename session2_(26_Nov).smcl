@@ -1,0 +1,801 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2/session2_(26_Nov).smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}26 Nov 2025, 22:10:38
+
+{com}. do "/var/folders/s2/5drs3rl92nn7gpqtxrj5wys00000gr/T//SD35050.000000"
+{txt}
+{com}. *set up the directory on your pc or mac
+. /*global dir1="/Users/bianxiaochen/Downloads/EC4305"
+> */
+. global dir1 "`c(pwd)'" 
+{txt}
+{com}. 
+. cd "$dir1"
+{res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2
+{txt}
+{com}. 
+. *import data
+. import delimited ResaleflatpricesbasedonregistrationdatefromJan2017onwards.csv
+{res}{txt}(encoding automatically selected: ISO-8859-1)
+{text}(11 vars, 218,319 obs)
+
+{com}. 
+. *check missing data 
+. misstable summarize
+{txt}(variables nonmissing or string)
+
+{com}. describe
+
+{txt}Contains data
+ Observations:{res}       218,319                  
+{txt}    Variables:{res}            11                  
+{txt}{hline}
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+{hline}
+{p 0 48}{res}{bind:month          }{txt}{bind: str7    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:town           }{txt}{bind: str15   }{bind:{txt}%15s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:flat_type      }{txt}{bind: str16   }{bind:{txt}%16s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:block          }{txt}{bind: str4    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:street_name    }{txt}{bind: str20   }{bind:{txt}%20s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:storey_range   }{txt}{bind: str8    }{bind:{txt}%9s       }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:floor_area_sqm }{txt}{bind: float   }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:flat_model     }{txt}{bind: str22   }{bind:{txt}%22s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:lease_commenc~e}{txt}{bind: int     }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:remaining_lease}{txt}{bind: str18   }{bind:{txt}%18s      }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{p 0 48}{bind:resale_price   }{txt}{bind: double  }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: 
+{res}     Note: Dataset has changed since last saved.
+{txt}
+{com}. codebook
+
+{txt}{hline}
+{res}month{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str7{txt})
+
+{col 10}Unique values: {res}106{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"2019-02"
+{col 25}"2020-12"
+{col 25}"2022-07"
+{col 25}"2024-03"
+
+{txt}{hline}
+{res}town{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str15{txt})
+
+{col 10}Unique values: {res}26{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"BUKIT PANJANG"
+{col 25}"JURONG WEST"
+{col 25}"PUNGGOL"
+{col 25}"TAMPINES"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}flat_type{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str16{txt})
+
+{col 10}Unique values: {res}7{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 13}Tabulation: Freq.  Value
+{col 20}{res}        80{col 32}"1 ROOM"
+{col 20}     4,376{col 32}"2 ROOM"
+{col 20}    51,949{col 32}"3 ROOM"
+{col 20}    92,481{col 32}"4 ROOM"
+{col 20}    53,619{col 32}"5 ROOM"
+{col 20}    15,730{col 32}"EXECUTIVE"
+{col 20}        84{col 32}"MULTI-GENERATION"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}block{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str4{txt})
+
+{col 10}Unique values: {res}2,743{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"1E"
+{col 25}"313C"
+{col 25}"470"
+{col 25}"658B"
+
+{txt}{hline}
+{res}street_name{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str20{txt})
+
+{col 10}Unique values: {res}576{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"CANBERRA CRES"
+{col 25}"HOUGANG AVE 8"
+{col 25}"POTONG PASIR AVE 1"
+{col 25}"TAMPINES ST 71"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}storey_range{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str8{txt})
+
+{col 10}Unique values: {res}17{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"04 TO 06"
+{col 25}"04 TO 06"
+{col 25}"07 TO 09"
+{col 25}"10 TO 12"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}floor_area_sqm{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}31{txt},{res}366.7{txt}]{col 55}Units: {res}.1
+{col 10}{txt}Unique values: {res}186{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 7:96.8018}
+{txt}{col 14}Std. dev.: {res}{ralign 7:24.0231}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:67}{ralign 10:      81}{ralign 10:      93}{ralign 10:     112}{ralign 10:     126}
+
+{txt}{hline}
+{res}flat_model{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str22{txt})
+
+{col 10}Unique values: {res}21{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"Improved"
+{col 25}"Model A"
+{col 25}"Model A"
+{col 25}"New Generation"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}lease_commence_date{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}int{txt})
+
+{col 18}Range: [{res}1966{txt},{res}2022{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}57{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 7:1996.41}
+{txt}{col 14}Std. dev.: {res}{ralign 7:14.2841}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:1978}{ralign 10:    1985}{ralign 10:    1997}{ralign 10:    2012}{ralign 10:    2016}
+
+{txt}{hline}
+{res}remaining_lease{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str18{txt})
+
+{col 10}Unique values: {res}692{col 51}{txt}Missing "": {res}0{txt}/{res}218,319
+
+{txt}{col 15}Examples: {res}"60 years 08 months"
+{col 25}"68 years 04 months"
+{col 25}"78 years 04 months"
+{col 25}"91 years 07 months"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}resale_price{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}double{txt})
+
+{col 18}Range: [{res}140000{txt},{res}1658888{txt}]{col 55}Units: {res}.01
+{col 10}{txt}Unique values: {res}4,505{col 51}{txt}Missing .: {res}0{txt}/{res}218,319
+
+{txt}{col 19}Mean: {res}{ralign 6:522194}
+{txt}{col 14}Std. dev.: {res}{ralign 6:185251}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 6:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 6:315000}{ralign 10:  385000}{ralign 10:  490000}{ralign 10:  628000}{ralign 10:  778000}
+{txt}
+{com}. 
+. *Feature Engineering 
+. gen year = real(substr(month, 1, 4))
+{txt}
+{com}. 
+. format year %9.0g
+{txt}
+{com}. 
+. gen remaining_lease_years = real(substr(remaining_lease,1,2))
+{txt}
+{com}. 
+. encode(storey_range), gen(storey_range_num)
+{txt}
+{com}. 
+. encode(town), gen(town_num)
+{txt}
+{com}. 
+. gen price = resale_price/1000
+{txt}
+{com}. 
+. gen average_storey = storey_range_num * 3 - 1
+{txt}
+{com}. 
+. 
+. *** Merge dataset
+. drop if year == 2025
+{txt}(21,337 observations deleted)
+
+{com}. merge m:1 year using cpi_yearly
+{res}
+{txt}{col 5}Result{col 33}Number of obs
+{col 5}{hline 41}
+{col 5}Not matched{col 30}{res}               0
+{txt}{col 5}Matched{col 30}{res}         196,982{txt}  (_merge==3)
+{col 5}{hline 41}
+
+{com}. 
+. ** Generate inflation-adjusted price
+. gen real_price = price * 0.01 * cpi
+{txt}
+{com}. 
+. codebook
+
+{txt}{hline}
+{res}month{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str7{txt})
+
+{col 10}Unique values: {res}96{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"2018-11"
+{col 25}"2020-09"
+{col 25}"2022-01"
+{col 25}"2023-07"
+
+{txt}{hline}
+{res}town{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str15{txt})
+
+{col 10}Unique values: {res}26{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"BUKIT PANJANG"
+{col 25}"JURONG EAST"
+{col 25}"PUNGGOL"
+{col 25}"TAMPINES"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}flat_type{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str16{txt})
+
+{col 10}Unique values: {res}7{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 13}Tabulation: Freq.  Value
+{col 20}{res}        75{col 32}"1 ROOM"
+{col 20}     3,664{col 32}"2 ROOM"
+{col 20}    46,722{col 32}"3 ROOM"
+{col 20}    83,248{col 32}"4 ROOM"
+{col 20}    48,728{col 32}"5 ROOM"
+{col 20}    14,465{col 32}"EXECUTIVE"
+{col 20}        80{col 32}"MULTI-GENERATION"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}block{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str4{txt})
+
+{col 10}Unique values: {res}2,728{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"2"
+{col 25}"313A"
+{col 25}"470A"
+{col 25}"658C"
+
+{txt}{hline}
+{res}street_name{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str20{txt})
+
+{col 10}Unique values: {res}571{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"CANBERRA RD"
+{col 25}"HOUGANG AVE 9"
+{col 25}"POTONG PASIR AVE 2"
+{col 25}"TAMPINES ST 71"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}storey_range{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str8{txt})
+
+{col 10}Unique values: {res}17{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"04 TO 06"
+{col 25}"04 TO 06"
+{col 25}"07 TO 09"
+{col 25}"10 TO 12"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}floor_area_sqm{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}31{txt},{res}366.7{txt}]{col 55}Units: {res}.1
+{col 10}{txt}Unique values: {res}178{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:97.0089}
+{txt}{col 14}Std. dev.: {res}{ralign 7:24.0295}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:67}{ralign 10:      82}{ralign 10:      93}{ralign 10:     112}{ralign 10:     126}
+
+{txt}{hline}
+{res}flat_model{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str22{txt})
+
+{col 10}Unique values: {res}21{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"Improved"
+{col 25}"Model A"
+{col 25}"Model A"
+{col 25}"New Generation"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}lease_commence_date{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}int{txt})
+
+{col 18}Range: [{res}1966{txt},{res}2021{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}56{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:1996.19}
+{txt}{col 14}Std. dev.: {res}{ralign 7:14.1473}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:1978}{ralign 10:    1985}{ralign 10:    1996}{ralign 10:    2011}{ralign 10:    2016}
+
+{txt}{hline}
+{res}remaining_lease{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: String ({res}str18{txt})
+
+{col 10}Unique values: {res}682{col 51}{txt}Missing "": {res}0{txt}/{res}196,982
+
+{txt}{col 15}Examples: {res}"61 years 01 month"
+{col 25}"68 years 05 months"
+{col 25}"78 years 06 months"
+{col 25}"91 years 09 months"
+
+{txt}{col 16}Warning: Variable has embedded blanks.
+
+{txt}{hline}
+{res}resale_price{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}double{txt})
+
+{col 18}Range: [{res}140000{txt},{res}1588000{txt}]{col 55}Units: {res}.01
+{col 10}{txt}Unique values: {res}4,162{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 6:508156}
+{txt}{col 14}Std. dev.: {res}{ralign 6:177740}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 6:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 6:308888}{ralign 10:  377000}{ralign 10:  478000}{ralign 10:  608000}{ralign 10:  750000}
+
+{txt}{hline}
+{res}year{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}2017{txt},{res}2024{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}8{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 13}Tabulation: Freq.  Value
+{col 20}{res}    20,509{col 32}2017
+{col 20}    21,561{col 32}2018
+{col 20}    22,186{col 32}2019
+{col 20}    23,333{col 32}2020
+{col 20}    29,087{col 32}2021
+{col 20}    26,720{col 32}2022
+{col 20}    25,754{col 32}2023
+{col 20}    27,832{col 32}2024
+
+{txt}{hline}
+{res}remaining_lease_years{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}40{txt},{res}97{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}58{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:74.0217}
+{txt}{col 14}Std. dev.: {res}{ralign 7:14.0647}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:56}{ralign 10:      62}{ralign 10:      74}{ralign 10:      88}{ralign 10:      94}
+
+{txt}{hline}
+{res}storey_range_num{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}long{txt})
+{ralign 22:Label}: {res:storey_range_num}
+
+{col 18}Range: [{res}1{txt},{res}17{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}17{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{ralign 23: Examples:}{col 25}{res}2{col 31}{txt}04 TO 06
+{ralign 23: }{col 25}{res}2{col 31}{txt}04 TO 06
+{ralign 23: }{col 25}{res}3{col 31}{txt}07 TO 09
+{ralign 23: }{col 25}{res}4{col 31}{txt}10 TO 12
+
+{txt}{hline}
+{res}town_num{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}long{txt})
+{ralign 22:Label}: {res:town_num}
+
+{col 18}Range: [{res}1{txt},{res}26{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}26{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{ralign 23: Examples:}{col 25}{res}6{col 31}{txt}BUKIT PANJANG
+{ralign 23: }{col 25}{res}13{col 31}{txt}JURONG EAST
+{ralign 23: }{col 25}{res}18{col 31}{txt}PUNGGOL
+{ralign 23: }{col 25}{res}23{col 31}{txt}TAMPINES
+
+{txt}{hline}
+{res}price{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}140{txt},{res}1588{txt}]{col 55}Units: {res}.00001
+{col 10}{txt}Unique values: {res}4,161{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:508.156}
+{txt}{col 14}Std. dev.: {res}{ralign 7:177.74}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:308.888}{ralign 10:     377}{ralign 10:     478}{ralign 10:     608}{ralign 10:     750}
+
+{txt}{hline}
+{res}average_storey{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}2{txt},{res}50{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}17{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:8.75575}
+{txt}{col 14}Std. dev.: {res}{ralign 7:5.93414}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:2}{ralign 10:       5}{ralign 10:       8}{ralign 10:      11}{ralign 10:      17}
+
+{txt}{hline}
+{res}cpi{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}85.084{txt},{res}100{txt}]{col 55}Units: {res}.001
+{col 10}{txt}Unique values: {res}8{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 13}Tabulation: Freq.  Value
+{col 20}{res}    20,509{col 32}85.084
+{col 20}    21,561{col 32}85.457001
+{col 20}    23,333{col 32}85.793999
+{col 20}    22,186{col 32}85.942001
+{col 20}    29,087{col 32}87.780998
+{col 20}    26,720{col 32}93.163002
+{col 20}    25,754{col 32}97.666
+{col 20}    27,832{col 32}100
+
+{txt}{hline}
+{res}_merge{right:Matching result from merge}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}byte{txt})
+{ralign 22:Label}: {res:_merge}
+
+{col 18}Range: [{res}3{txt},{res}3{txt}]{col 55}Units: {res}1
+{col 10}{txt}Unique values: {res}1{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 13}Tabulation: Freq.   Numeric  Label
+{col 20}{res}   196,982{col 32}       3{col 42}{txt}Matched (3)
+
+{txt}{hline}
+{res}real_price{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}Type: Numeric ({res}float{txt})
+
+{col 18}Range: [{res}120.1116{txt},{res}1588{txt}]{col 55}Units: {res}1.000e-06
+{col 10}{txt}Unique values: {res}13,084{col 51}{txt}Missing .: {res}0{txt}/{res}196,982
+
+{txt}{col 19}Mean: {res}{ralign 7:463.715}
+{txt}{col 14}Std. dev.: {res}{ralign 7:175.546}
+
+{txt}{col 12}Percentiles: {col 25}{ralign 7:10%}{ralign 10:25%}{ralign 10:50%}{ralign 10:75%}{ralign 10:90%}
+{res}{col 25}{ralign 7:268.015}{ralign 10: 333.568}{ralign 10:     430}{ralign 10:     565}{ralign 10: 701.943}
+{txt}
+{com}. 
+. 
+. ****Summary statistics  
+. *data description: mean, variance, max and mean
+. sum real_price floor_area_sqm remaining_lease_years average_storey
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}real_price {c |}{res}    196,982    463.7155    175.5465   120.1116       1588
+{txt}floor_area~m {c |}{res}    196,982    97.00885    24.02951         31      366.7
+{txt}remaining_~s {c |}{res}    196,982    74.02167    14.06468         40         97
+{txt}average_st~y {c |}{res}    196,982    8.755749    5.934143          2         50
+{txt}
+{com}. 
+. 
+. *pairwise correlation, covariance estimates etc)
+. pwcorr real_price floor_area_sqm remaining_lease_years average_storey
+
+             {txt}{c |} real_p~e floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+  real_price {c |} {res}  1.0000 
+{txt}floor_area~m {c |} {res}  0.5361   1.0000 
+{txt}remaining_~s {c |} {res}  0.2856   0.1160   1.0000 
+{txt}average_st~y {c |} {res}  0.3215  -0.0139   0.2746   1.0000 
+{txt}
+{com}. 
+. *covariance Matrix 
+. correlate real_price floor_area_sqm remaining_lease_years average_storey, covariance
+{txt}(obs=196,982)
+
+             {c |} real_p~e floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+  real_price {c |}{res}  30816.6
+{txt}floor_area~m {c |}{res}  2261.25  577.417
+{txt}remaining_~s {c |}{res}  705.153  39.1945  197.815
+{txt}average_st~y {c |}{res}  334.896  -1.9788  22.9211  35.2141
+
+{txt}
+{com}. matrix C = r(C)    // stores covariance matrix in C
+{txt}
+{com}. 
+. *correlation matrix 
+. correlate real_price floor_area_sqm remaining_lease_years average_storey
+{txt}(obs=196,982)
+
+             {c |} real_p~e floor_~m remain~s averag~y
+{hline 13}{c +}{hline 36}
+  real_price {c |}{res}   1.0000
+{txt}floor_area~m {c |}{res}   0.5361   1.0000
+{txt}remaining_~s {c |}{res}   0.2856   0.1160   1.0000
+{txt}average_st~y {c |}{res}   0.3215  -0.0139   0.2746   1.0000
+
+{txt}
+{com}. matrix R = r(C)
+{txt}
+{com}. 
+. * Excluding sq metre, remaining_lease_years is found to have the largest covariance with resale price, while average storey has the highest correlation 
+. 
+. 
+. ***Regression 
+. reg real_price remaining_lease_years i.town_num i.year
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   196,982
+{txt}{hline 13}{c +}{hline 34}   F(33, 196948)   = {res}  6040.93
+{txt}       Model {c |} {res} 3.0535e+09        33  92531520.9   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 3.0167e+09   196,948  15317.4358   {txt}R-squared       ={res}    0.5030
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5029
+{txt}       Total {c |} {res} 6.0703e+09   196,981  30816.5688   {txt}Root MSE        =   {res} 123.76
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}           real_price{col 23}{c |} Coefficient{col 35}  Std. err.{col 47}      t{col 55}   P>|t|{col 63}     [95% con{col 76}f. interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+remaining_lease_years {c |}{col 23}{res}{space 2} 5.988854{col 35}{space 2} .0240062{col 46}{space 1}  249.47{col 55}{space 3}0.000{col 63}{space 4} 5.941802{col 76}{space 3} 6.035906
+{txt}{space 21} {c |}
+{space 13}town_num {c |}
+{space 15}BEDOK  {c |}{col 23}{res}{space 2}-1.509471{col 35}{space 2} 1.836528{col 46}{space 1}   -0.82{col 55}{space 3}0.411{col 63}{space 4}-5.109022{col 76}{space 3}  2.09008
+{txt}{space 14}BISHAN  {c |}{col 23}{res}{space 2}  180.587{col 35}{space 2} 2.503407{col 46}{space 1}   72.14{col 55}{space 3}0.000{col 63}{space 4} 175.6804{col 76}{space 3} 185.4936
+{txt}{space 9}BUKIT BATOK  {c |}{col 23}{res}{space 2}-62.66266{col 35}{space 2} 1.975012{col 46}{space 1}  -31.73{col 55}{space 3}0.000{col 63}{space 4}-66.53363{col 76}{space 3}-58.79168
+{txt}{space 9}BUKIT MERAH  {c |}{col 23}{res}{space 2} 95.35348{col 35}{space 2} 1.988889{col 46}{space 1}   47.94{col 55}{space 3}0.000{col 63}{space 4}  91.4553{col 76}{space 3} 99.25165
+{txt}{space 7}BUKIT PANJANG  {c |}{col 23}{res}{space 2}-73.02749{col 35}{space 2} 2.044494{col 46}{space 1}  -35.72{col 55}{space 3}0.000{col 63}{space 4}-77.03465{col 76}{space 3}-69.02033
+{txt}{space 9}BUKIT TIMAH  {c |}{col 23}{res}{space 2} 274.0766{col 35}{space 2}  5.76933{col 46}{space 1}   47.51{col 55}{space 3}0.000{col 63}{space 4} 262.7688{col 76}{space 3} 285.3843
+{txt}{space 8}CENTRAL AREA  {c |}{col 23}{res}{space 2} 156.3985{col 35}{space 2} 3.421019{col 46}{space 1}   45.72{col 55}{space 3}0.000{col 63}{space 4} 149.6933{col 76}{space 3} 163.1036
+{txt}{space 7}CHOA CHU KANG  {c |}{col 23}{res}{space 2}-90.70556{col 35}{space 2} 1.933397{col 46}{space 1}  -46.92{col 55}{space 3}0.000{col 63}{space 4}-94.49497{col 76}{space 3}-86.91615
+{txt}{space 12}CLEMENTI  {c |}{col 23}{res}{space 2} 36.17227{col 35}{space 2} 2.323073{col 46}{space 1}   15.57{col 55}{space 3}0.000{col 63}{space 4}  31.6191{col 76}{space 3} 40.72543
+{txt}{space 13}GEYLANG  {c |}{col 23}{res}{space 2} 21.67776{col 35}{space 2}  2.24755{col 46}{space 1}    9.65{col 55}{space 3}0.000{col 63}{space 4} 17.27262{col 76}{space 3}  26.0829
+{txt}{space 13}HOUGANG  {c |}{col 23}{res}{space 2}-28.77743{col 35}{space 2} 1.870045{col 46}{space 1}  -15.39{col 55}{space 3}0.000{col 63}{space 4}-32.44267{col 76}{space 3}-25.11218
+{txt}{space 9}JURONG EAST  {c |}{col 23}{res}{space 2}-32.17464{col 35}{space 2} 2.388788{col 46}{space 1}  -13.47{col 55}{space 3}0.000{col 63}{space 4}-36.85661{col 76}{space 3}-27.49268
+{txt}{space 9}JURONG WEST  {c |}{col 23}{res}{space 2}-78.93188{col 35}{space 2} 1.769759{col 46}{space 1}  -44.60{col 55}{space 3}0.000{col 63}{space 4}-82.40057{col 76}{space 3} -75.4632
+{txt}{space 5}KALLANG/WHAMPOA  {c |}{col 23}{res}{space 2} 62.99554{col 35}{space 2} 2.112199{col 46}{space 1}   29.82{col 55}{space 3}0.000{col 63}{space 4} 58.85568{col 76}{space 3}  67.1354
+{txt}{space 7}MARINE PARADE  {c |}{col 23}{res}{space 2} 131.3974{col 35}{space 2} 3.829507{col 46}{space 1}   34.31{col 55}{space 3}0.000{col 63}{space 4} 123.8917{col 76}{space 3} 138.9032
+{txt}{space 11}PASIR RIS  {c |}{col 23}{res}{space 2} 31.31794{col 35}{space 2} 2.148669{col 46}{space 1}   14.58{col 55}{space 3}0.000{col 63}{space 4}  27.1066{col 76}{space 3} 35.52928
+{txt}{space 13}PUNGGOL  {c |}{col 23}{res}{space 2}-109.3979{col 35}{space 2} 1.831854{col 46}{space 1}  -59.72{col 55}{space 3}0.000{col 63}{space 4}-112.9883{col 76}{space 3}-105.8076
+{txt}{space 10}QUEENSTOWN  {c |}{col 23}{res}{space 2} 90.86161{col 35}{space 2} 2.183284{col 46}{space 1}   41.62{col 55}{space 3}0.000{col 63}{space 4} 86.58242{col 76}{space 3} 95.14079
+{txt}{space 11}SEMBAWANG  {c |}{col 23}{res}{space 2}-133.2664{col 35}{space 2} 2.222268{col 46}{space 1}  -59.97{col 55}{space 3}0.000{col 63}{space 4} -137.622{col 76}{space 3}-128.9108
+{txt}{space 12}SENGKANG  {c |}{col 23}{res}{space 2}-99.43114{col 35}{space 2} 1.773292{col 46}{space 1}  -56.07{col 55}{space 3}0.000{col 63}{space 4}-102.9068{col 76}{space 3}-95.95553
+{txt}{space 11}SERANGOON  {c |}{col 23}{res}{space 2} 59.35167{col 35}{space 2} 2.492053{col 46}{space 1}   23.82{col 55}{space 3}0.000{col 63}{space 4} 54.46731{col 76}{space 3} 64.23604
+{txt}{space 12}TAMPINES  {c |}{col 23}{res}{space 2} 16.50366{col 35}{space 2} 1.757031{col 46}{space 1}    9.39{col 55}{space 3}0.000{col 63}{space 4} 13.05993{col 76}{space 3}  19.9474
+{txt}{space 11}TOA PAYOH  {c |}{col 23}{res}{space 2} 58.17923{col 35}{space 2} 2.094477{col 46}{space 1}   27.78{col 55}{space 3}0.000{col 63}{space 4} 54.07411{col 76}{space 3} 62.28436
+{txt}{space 11}WOODLANDS  {c |}{col 23}{res}{space 2}-86.59032{col 35}{space 2} 1.758608{col 46}{space 1}  -49.24{col 55}{space 3}0.000{col 63}{space 4}-90.03715{col 76}{space 3}-83.14349
+{txt}{space 14}YISHUN  {c |}{col 23}{res}{space 2} -97.5175{col 35}{space 2} 1.762979{col 46}{space 1}  -55.31{col 55}{space 3}0.000{col 63}{space 4}-100.9729{col 76}{space 3}-94.06211
+{txt}{space 21} {c |}
+{space 17}year {c |}
+{space 16}2018  {c |}{col 23}{res}{space 2} 2.863488{col 35}{space 2} 1.207428{col 46}{space 1}    2.37{col 55}{space 3}0.018{col 63}{space 4} .4969578{col 76}{space 3} 5.230019
+{txt}{space 16}2019  {c |}{col 23}{res}{space 2} -.205541{col 35}{space 2} 1.199447{col 46}{space 1}   -0.17{col 55}{space 3}0.864{col 63}{space 4}-2.556429{col 76}{space 3} 2.145347
+{txt}{space 16}2020  {c |}{col 23}{res}{space 2} 10.49583{col 35}{space 2} 1.185793{col 46}{space 1}    8.85{col 55}{space 3}0.000{col 63}{space 4}   8.1717{col 76}{space 3} 12.81995
+{txt}{space 16}2021  {c |}{col 23}{res}{space 2} 68.27585{col 35}{space 2} 1.130301{col 46}{space 1}   60.41{col 55}{space 3}0.000{col 63}{space 4} 66.06048{col 76}{space 3} 70.49121
+{txt}{space 16}2022  {c |}{col 23}{res}{space 2} 141.9611{col 35}{space 2} 1.150035{col 46}{space 1}  123.44{col 55}{space 3}0.000{col 63}{space 4}  139.707{col 76}{space 3} 144.2151
+{txt}{space 16}2023  {c |}{col 23}{res}{space 2} 192.9611{col 35}{space 2} 1.160136{col 46}{space 1}  166.33{col 55}{space 3}0.000{col 63}{space 4} 190.6872{col 76}{space 3} 195.2349
+{txt}{space 16}2024  {c |}{col 23}{res}{space 2} 251.2035{col 35}{space 2} 1.141461{col 46}{space 1}  220.07{col 55}{space 3}0.000{col 63}{space 4} 248.9662{col 76}{space 3} 253.4407
+{txt}{space 21} {c |}
+{space 16}_cons {c |}{col 23}{res}{space 2}-41.83684{col 35}{space 2} 2.211581{col 46}{space 1}  -18.92{col 55}{space 3}0.000{col 63}{space 4}-46.17149{col 76}{space 3}-37.50219
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg real_price floor_area_sqm i.town_num i.year
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   196,982
+{txt}{hline 13}{c +}{hline 34}   F(33, 196948)   = {res} 15102.11
+{txt}       Model {c |} {res} 4.3509e+09        33   131844798   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1.7194e+09   196,948  8730.22426   {txt}R-squared       ={res}    0.7168
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.7167
+{txt}       Total {c |} {res} 6.0703e+09   196,981  30816.5688   {txt}Root MSE        =   {res} 93.436
+
+{txt}{hline 17}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      real_price{col 18}{c |} Coefficient{col 30}  Std. err.{col 42}      t{col 50}   P>|t|{col 58}     [95% con{col 71}f. interval]
+{hline 17}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}floor_area_sqm {c |}{col 18}{res}{space 2} 4.763243{col 30}{space 2} .0093813{col 41}{space 1}  507.74{col 50}{space 3}0.000{col 58}{space 4} 4.744856{col 71}{space 3}  4.78163
+{txt}{space 16} {c |}
+{space 8}town_num {c |}
+{space 10}BEDOK  {c |}{col 18}{res}{space 2}-22.74391{col 30}{space 2} 1.387198{col 41}{space 1}  -16.40{col 50}{space 3}0.000{col 58}{space 4}-25.46278{col 71}{space 3}-20.02503
+{txt}{space 9}BISHAN  {c |}{col 18}{res}{space 2} 101.5635{col 30}{space 2}  1.89981{col 41}{space 1}   53.46{col 50}{space 3}0.000{col 58}{space 4} 97.83996{col 71}{space 3} 105.2871
+{txt}{space 4}BUKIT BATOK  {c |}{col 18}{res}{space 2}-44.52486{col 30}{space 2} 1.481254{col 41}{space 1}  -30.06{col 50}{space 3}0.000{col 58}{space 4}-47.42809{col 71}{space 3}-41.62164
+{txt}{space 4}BUKIT MERAH  {c |}{col 18}{res}{space 2} 129.3654{col 30}{space 2} 1.495869{col 41}{space 1}   86.48{col 50}{space 3}0.000{col 58}{space 4} 126.4336{col 71}{space 3} 132.2973
+{txt}{space 2}BUKIT PANJANG  {c |}{col 18}{res}{space 2}-58.16965{col 30}{space 2} 1.524541{col 41}{space 1}  -38.16{col 50}{space 3}0.000{col 58}{space 4}-61.15772{col 71}{space 3}-55.18159
+{txt}{space 4}BUKIT TIMAH  {c |}{col 18}{res}{space 2}  149.777{col 30}{space 2} 4.361202{col 41}{space 1}   34.34{col 50}{space 3}0.000{col 58}{space 4} 141.2292{col 71}{space 3} 158.3249
+{txt}{space 3}CENTRAL AREA  {c |}{col 18}{res}{space 2} 204.8877{col 30}{space 2} 2.581187{col 41}{space 1}   79.38{col 50}{space 3}0.000{col 58}{space 4} 199.8286{col 71}{space 3} 209.9468
+{txt}{space 2}CHOA CHU KANG  {c |}{col 18}{res}{space 2} -107.003{col 30}{space 2} 1.448221{col 41}{space 1}  -73.89{col 50}{space 3}0.000{col 58}{space 4}-109.8414{col 71}{space 3}-104.1645
+{txt}{space 7}CLEMENTI  {c |}{col 18}{res}{space 2} 57.17111{col 30}{space 2} 1.751963{col 41}{space 1}   32.63{col 50}{space 3}0.000{col 58}{space 4}  53.7373{col 71}{space 3} 60.60491
+{txt}{space 8}GEYLANG  {c |}{col 18}{res}{space 2} 28.67366{col 30}{space 2} 1.696852{col 41}{space 1}   16.90{col 50}{space 3}0.000{col 58}{space 4} 25.34787{col 71}{space 3} 31.99945
+{txt}{space 8}HOUGANG  {c |}{col 18}{res}{space 2}-41.33213{col 30}{space 2}   1.4074{col 41}{space 1}  -29.37{col 50}{space 3}0.000{col 58}{space 4} -44.0906{col 71}{space 3}-38.57366
+{txt}{space 4}JURONG EAST  {c |}{col 18}{res}{space 2}-61.57646{col 30}{space 2} 1.804955{col 41}{space 1}  -34.12{col 50}{space 3}0.000{col 58}{space 4}-65.11413{col 71}{space 3}-58.03879
+{txt}{space 4}JURONG WEST  {c |}{col 18}{res}{space 2}-93.67162{col 30}{space 2} 1.331022{col 41}{space 1}  -70.38{col 50}{space 3}0.000{col 58}{space 4}-96.28039{col 71}{space 3}-91.06285
+{txt}KALLANG/WHAMPOA  {c |}{col 18}{res}{space 2} 85.26791{col 30}{space 2} 1.592194{col 41}{space 1}   53.55{col 50}{space 3}0.000{col 58}{space 4} 82.14725{col 71}{space 3} 88.38857
+{txt}{space 2}MARINE PARADE  {c |}{col 18}{res}{space 2} 65.47053{col 30}{space 2} 2.885314{col 41}{space 1}   22.69{col 50}{space 3}0.000{col 58}{space 4} 59.81539{col 71}{space 3} 71.12568
+{txt}{space 6}PASIR RIS  {c |}{col 18}{res}{space 2}-71.92464{col 30}{space 2} 1.643819{col 41}{space 1}  -43.75{col 50}{space 3}0.000{col 58}{space 4}-75.14648{col 71}{space 3}-68.70279
+{txt}{space 8}PUNGGOL  {c |}{col 18}{res}{space 2} .7483753{col 30}{space 2} 1.299126{col 41}{space 1}    0.58{col 50}{space 3}0.565{col 58}{space 4} -1.79788{col 71}{space 3}  3.29463
+{txt}{space 5}QUEENSTOWN  {c |}{col 18}{res}{space 2} 151.4726{col 30}{space 2} 1.642187{col 41}{space 1}   92.24{col 50}{space 3}0.000{col 58}{space 4} 148.2539{col 71}{space 3} 154.6912
+{txt}{space 6}SEMBAWANG  {c |}{col 18}{res}{space 2}-73.30923{col 30}{space 2} 1.637157{col 41}{space 1}  -44.78{col 50}{space 3}0.000{col 58}{space 4}-76.51802{col 71}{space 3}-70.10044
+{txt}{space 7}SENGKANG  {c |}{col 18}{res}{space 2}-28.42748{col 30}{space 2} 1.278523{col 41}{space 1}  -22.23{col 50}{space 3}0.000{col 58}{space 4}-30.93335{col 71}{space 3}-25.92161
+{txt}{space 6}SERANGOON  {c |}{col 18}{res}{space 2}-.5305177{col 30}{space 2} 1.886811{col 41}{space 1}   -0.28{col 50}{space 3}0.779{col 58}{space 4}-4.228621{col 71}{space 3} 3.167586
+{txt}{space 7}TAMPINES  {c |}{col 18}{res}{space 2}-27.89176{col 30}{space 2}  1.33107{col 41}{space 1}  -20.95{col 50}{space 3}0.000{col 58}{space 4}-30.50062{col 71}{space 3}-25.28289
+{txt}{space 6}TOA PAYOH  {c |}{col 18}{res}{space 2} 60.65576{col 30}{space 2} 1.581091{col 41}{space 1}   38.36{col 50}{space 3}0.000{col 58}{space 4} 57.55686{col 71}{space 3} 63.75467
+{txt}{space 6}WOODLANDS  {c |}{col 18}{res}{space 2}-104.3552{col 30}{space 2} 1.319312{col 41}{space 1}  -79.10{col 50}{space 3}0.000{col 58}{space 4}-106.9411{col 71}{space 3}-101.7694
+{txt}{space 9}YISHUN  {c |}{col 18}{res}{space 2}-66.75912{col 30}{space 2} 1.317128{col 41}{space 1}  -50.69{col 50}{space 3}0.000{col 58}{space 4}-69.34066{col 71}{space 3}-64.17758
+{txt}{space 16} {c |}
+{space 12}year {c |}
+{space 11}2018  {c |}{col 18}{res}{space 2}-2.841991{col 30}{space 2} .9115241{col 41}{space 1}   -3.12{col 50}{space 3}0.002{col 58}{space 4}-4.628556{col 71}{space 3}-1.055425
+{txt}{space 11}2019  {c |}{col 18}{res}{space 2} .8362611{col 30}{space 2} .9055157{col 41}{space 1}    0.92{col 50}{space 3}0.356{col 58}{space 4} -.938528{col 71}{space 3}  2.61105
+{txt}{space 11}2020  {c |}{col 18}{res}{space 2} 12.60416{col 30}{space 2} .8952269{col 41}{space 1}   14.08{col 50}{space 3}0.000{col 58}{space 4} 10.84953{col 71}{space 3} 14.35878
+{txt}{space 11}2021  {c |}{col 18}{res}{space 2} 65.40072{col 30}{space 2} .8533276{col 41}{space 1}   76.64{col 50}{space 3}0.000{col 58}{space 4} 63.72822{col 71}{space 3} 67.07322
+{txt}{space 11}2022  {c |}{col 18}{res}{space 2}  140.079{col 30}{space 2} .8680408{col 41}{space 1}  161.37{col 50}{space 3}0.000{col 58}{space 4} 138.3776{col 71}{space 3} 141.7803
+{txt}{space 11}2023  {c |}{col 18}{res}{space 2} 197.0573{col 30}{space 2} .8758159{col 41}{space 1}  225.00{col 50}{space 3}0.000{col 58}{space 4} 195.3407{col 71}{space 3} 198.7739
+{txt}{space 11}2024  {c |}{col 18}{res}{space 2} 250.6183{col 30}{space 2} .8612153{col 41}{space 1}  291.01{col 50}{space 3}0.000{col 58}{space 4} 248.9303{col 71}{space 3} 252.3062
+{txt}{space 16} {c |}
+{space 11}_cons {c |}{col 18}{res}{space 2}-69.41518{col 30}{space 2} 1.449682{col 41}{space 1}  -47.88{col 50}{space 3}0.000{col 58}{space 4}-72.25652{col 71}{space 3}-66.57384
+{txt}{hline 17}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg real_price average_storey i.town_num i.year
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}   196,982
+{txt}{hline 13}{c +}{hline 34}   F(33, 196948)   = {res}  4401.28
+{txt}       Model {c |} {res} 2.5765e+09        33  78076420.2   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 3.4938e+09   196,948   17739.488   {txt}R-squared       ={res}    0.4244
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.4244
+{txt}       Total {c |} {res} 6.0703e+09   196,981  30816.5688   {txt}Root MSE        =   {res} 133.19
+
+{txt}{hline 17}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      real_price{col 18}{c |} Coefficient{col 30}  Std. err.{col 42}      t{col 50}   P>|t|{col 58}     [95% con{col 71}f. interval]
+{hline 17}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}average_storey {c |}{col 18}{res}{space 2} 8.682549{col 30}{space 2} .0529895{col 41}{space 1}  163.85{col 50}{space 3}0.000{col 58}{space 4} 8.578691{col 71}{space 3} 8.786408
+{txt}{space 16} {c |}
+{space 8}town_num {c |}
+{space 10}BEDOK  {c |}{col 18}{res}{space 2} 7.173426{col 30}{space 2} 1.976901{col 41}{space 1}    3.63{col 50}{space 3}0.000{col 58}{space 4} 3.298747{col 71}{space 3}  11.0481
+{txt}{space 9}BISHAN  {c |}{col 18}{res}{space 2}  209.165{col 30}{space 2} 2.691299{col 41}{space 1}   77.72{col 50}{space 3}0.000{col 58}{space 4} 203.8902{col 71}{space 3} 214.4399
+{txt}{space 4}BUKIT BATOK  {c |}{col 18}{res}{space 2} .0647595{col 30}{space 2} 2.107616{col 41}{space 1}    0.03{col 50}{space 3}0.975{col 58}{space 4}-4.066118{col 71}{space 3} 4.195637
+{txt}{space 4}BUKIT MERAH  {c |}{col 18}{res}{space 2} 111.3594{col 30}{space 2} 2.138709{col 41}{space 1}   52.07{col 50}{space 3}0.000{col 58}{space 4} 107.1676{col 71}{space 3} 115.5512
+{txt}{space 2}BUKIT PANJANG  {c |}{col 18}{res}{space 2} 10.06398{col 30}{space 2} 2.162698{col 41}{space 1}    4.65{col 50}{space 3}0.000{col 58}{space 4} 5.825141{col 71}{space 3} 14.30281
+{txt}{space 4}BUKIT TIMAH  {c |}{col 18}{res}{space 2} 273.6623{col 30}{space 2} 6.208875{col 41}{space 1}   44.08{col 50}{space 3}0.000{col 58}{space 4} 261.4931{col 71}{space 3} 285.8315
+{txt}{space 3}CENTRAL AREA  {c |}{col 18}{res}{space 2} 121.0163{col 30}{space 2} 3.701547{col 41}{space 1}   32.69{col 50}{space 3}0.000{col 58}{space 4} 113.7613{col 71}{space 3} 128.2712
+{txt}{space 2}CHOA CHU KANG  {c |}{col 18}{res}{space 2} 4.923484{col 30}{space 2} 2.041369{col 41}{space 1}    2.41{col 50}{space 3}0.016{col 58}{space 4} .9224502{col 71}{space 3} 8.924519
+{txt}{space 7}CLEMENTI  {c |}{col 18}{res}{space 2}  45.3606{col 30}{space 2} 2.499643{col 41}{space 1}   18.15{col 50}{space 3}0.000{col 58}{space 4} 40.46136{col 71}{space 3} 50.25984
+{txt}{space 8}GEYLANG  {c |}{col 18}{res}{space 2} 28.64312{col 30}{space 2} 2.419117{col 41}{space 1}   11.84{col 50}{space 3}0.000{col 58}{space 4} 23.90171{col 71}{space 3} 33.38454
+{txt}{space 8}HOUGANG  {c |}{col 18}{res}{space 2} 38.60098{col 30}{space 2}  1.99647{col 41}{space 1}   19.33{col 50}{space 3}0.000{col 58}{space 4} 34.68795{col 71}{space 3} 42.51402
+{txt}{space 4}JURONG EAST  {c |}{col 18}{res}{space 2}-7.801031{col 30}{space 2} 2.567842{col 41}{space 1}   -3.04{col 50}{space 3}0.002{col 58}{space 4}-12.83394{col 71}{space 3}-2.768123
+{txt}{space 4}JURONG WEST  {c |}{col 18}{res}{space 2}-10.33832{col 30}{space 2} 1.884588{col 41}{space 1}   -5.49{col 50}{space 3}0.000{col 58}{space 4}-14.03207{col 71}{space 3}-6.644575
+{txt}KALLANG/WHAMPOA  {c |}{col 18}{res}{space 2} 72.91989{col 30}{space 2} 2.272634{col 41}{space 1}   32.09{col 50}{space 3}0.000{col 58}{space 4} 68.46559{col 71}{space 3}  77.3742
+{txt}{space 2}MARINE PARADE  {c |}{col 18}{res}{space 2} 63.24866{col 30}{space 2} 4.113164{col 41}{space 1}   15.38{col 50}{space 3}0.000{col 58}{space 4} 55.18695{col 71}{space 3} 71.31036
+{txt}{space 6}PASIR RIS  {c |}{col 18}{res}{space 2} 108.2444{col 30}{space 2} 2.298188{col 41}{space 1}   47.10{col 50}{space 3}0.000{col 58}{space 4}   103.74{col 71}{space 3} 112.7488
+{txt}{space 8}PUNGGOL  {c |}{col 18}{res}{space 2} 42.13153{col 30}{space 2} 1.847289{col 41}{space 1}   22.81{col 50}{space 3}0.000{col 58}{space 4} 38.51089{col 71}{space 3} 45.75218
+{txt}{space 5}QUEENSTOWN  {c |}{col 18}{res}{space 2} 92.08559{col 30}{space 2} 2.357607{col 41}{space 1}   39.06{col 50}{space 3}0.000{col 58}{space 4} 87.46474{col 71}{space 3} 96.70644
+{txt}{space 6}SEMBAWANG  {c |}{col 18}{res}{space 2}-3.512768{col 30}{space 2}  2.32559{col 41}{space 1}   -1.51{col 50}{space 3}0.131{col 58}{space 4}-8.070868{col 71}{space 3} 1.045332
+{txt}{space 7}SENGKANG  {c |}{col 18}{res}{space 2} 24.52064{col 30}{space 2} 1.814789{col 41}{space 1}   13.51{col 50}{space 3}0.000{col 58}{space 4}  20.9637{col 71}{space 3} 28.07759
+{txt}{space 6}SERANGOON  {c |}{col 18}{res}{space 2} 93.03106{col 30}{space 2} 2.682565{col 41}{space 1}   34.68{col 50}{space 3}0.000{col 58}{space 4}  87.7733{col 71}{space 3} 98.28882
+{txt}{space 7}TAMPINES  {c |}{col 18}{res}{space 2} 78.95043{col 30}{space 2} 1.882511{col 41}{space 1}   41.94{col 50}{space 3}0.000{col 58}{space 4} 75.26075{col 71}{space 3} 82.64011
+{txt}{space 6}TOA PAYOH  {c |}{col 18}{res}{space 2} 46.30385{col 30}{space 2} 2.256927{col 41}{space 1}   20.52{col 50}{space 3}0.000{col 58}{space 4} 41.88032{col 71}{space 3} 50.72737
+{txt}{space 6}WOODLANDS  {c |}{col 18}{res}{space 2} 4.623235{col 30}{space 2} 1.861248{col 41}{space 1}    2.48{col 50}{space 3}0.013{col 58}{space 4} .9752336{col 71}{space 3} 8.271236
+{txt}{space 9}YISHUN  {c |}{col 18}{res}{space 2}-15.85744{col 30}{space 2} 1.876611{col 41}{space 1}   -8.45{col 50}{space 3}0.000{col 58}{space 4}-19.53555{col 71}{space 3}-12.17933
+{txt}{space 16} {c |}
+{space 12}year {c |}
+{space 11}2018  {c |}{col 18}{res}{space 2}-.0293749{col 30}{space 2} 1.299326{col 41}{space 1}   -0.02{col 50}{space 3}0.982{col 58}{space 4}-2.576023{col 71}{space 3} 2.517274
+{txt}{space 11}2019  {c |}{col 18}{res}{space 2}-2.318675{col 30}{space 2} 1.290746{col 41}{space 1}   -1.80{col 50}{space 3}0.072{col 58}{space 4}-4.848507{col 71}{space 3} .2111566
+{txt}{space 11}2020  {c |}{col 18}{res}{space 2}  10.6791{col 30}{space 2} 1.276105{col 41}{space 1}    8.37{col 50}{space 3}0.000{col 58}{space 4} 8.177966{col 71}{space 3} 13.18024
+{txt}{space 11}2021  {c |}{col 18}{res}{space 2} 65.40098{col 30}{space 2} 1.216437{col 41}{space 1}   53.76{col 50}{space 3}0.000{col 58}{space 4} 63.01679{col 71}{space 3} 67.78517
+{txt}{space 11}2022  {c |}{col 18}{res}{space 2} 133.1636{col 30}{space 2} 1.237366{col 41}{space 1}  107.62{col 50}{space 3}0.000{col 58}{space 4} 130.7384{col 71}{space 3} 135.5888
+{txt}{space 11}2023  {c |}{col 18}{res}{space 2} 182.3815{col 30}{space 2} 1.247991{col 41}{space 1}  146.14{col 50}{space 3}0.000{col 58}{space 4} 179.9355{col 71}{space 3} 184.8275
+{txt}{space 11}2024  {c |}{col 18}{res}{space 2} 237.8565{col 30}{space 2} 1.227163{col 41}{space 1}  193.83{col 50}{space 3}0.000{col 58}{space 4} 235.4513{col 71}{space 3} 240.2618
+{txt}{space 16} {c |}
+{space 11}_cons {c |}{col 18}{res}{space 2} 267.0859{col 30}{space 2} 1.773941{col 41}{space 1}  150.56{col 50}{space 3}0.000{col 58}{space 4}  263.609{col 71}{space 3} 270.5628
+{txt}{hline 17}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/user3/Downloads/Y4:S1 NUS 2025:2026/EC4305/ec4305-group2/session2_(26_Nov).smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}26 Nov 2025, 22:11:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

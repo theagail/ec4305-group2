@@ -24,32 +24,46 @@ encode(storey_range), gen(storey_range_num)
 
 encode(town), gen(town_num)
 
-gen resale_prices_in_thousands = resale_price/1000
+gen price = resale_price/1000
 
-gen average_storey = storey_range_num * 3 + 2
+gen average_storey = storey_range_num * 3 - 1
 
-***Regression 
-reg resale_prices_in_thousands remaining_lease_years i.town_num i.year
-reg resale_prices_in_thousands floor_area_sqm i.town_num i.year
-reg resale_prices_in_thousands average_storey i.town_num i.year
+
+*** Merge dataset
+drop if year == 2025
+merge m:1 year using cpi_yearly
+
+** Generate inflation-adjusted price
+gen real_price = price * 0.01 * cpi
+
+codebook
 
 
 ****Summary statistics  
 *data description: mean, variance, max and mean
-sum resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+sum real_price floor_area_sqm remaining_lease_years average_storey
 
 
 *pairwise correlation, covariance estimates etc)
-pwcorr resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+pwcorr real_price floor_area_sqm remaining_lease_years average_storey
 
 *covariance Matrix 
-correlate resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey, covariance
+correlate real_price floor_area_sqm remaining_lease_years average_storey, covariance
 matrix C = r(C)    // stores covariance matrix in C
 
 *correlation matrix 
-correlate resale_prices_in_thousands floor_area_sqm remaining_lease_years average_storey
+correlate real_price floor_area_sqm remaining_lease_years average_storey
 matrix R = r(C)
 
 * Excluding sq metre, remaining_lease_years is found to have the largest covariance with resale price, while average storey has the highest correlation 
+
+
+***Regression 
+reg real_price remaining_lease_years i.town_num i.year
+reg real_price floor_area_sqm i.town_num i.year
+reg real_price average_storey i.town_num i.year
+
+
+
 
 
