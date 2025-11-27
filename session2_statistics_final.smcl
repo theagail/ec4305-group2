@@ -1,0 +1,77 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/sien/Desktop/SEM 7/EC4305/27 Nov 10.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}27 Nov 2025, 14:47:55
+
+{com}. **Summary statistics  
+
+. *data description: mean, variance, max and mean
+
+. sum real_price floor_area_sqm lease avg_storey 
+
+{txt}    Variable {c |}        Obs        Mean    Std. dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}real_price {c |}{res}    196,982    463.7155    175.5465   120.1116       1588
+{txt}floor_area~m {c |}{res}    196,982    97.00885    24.02951         31      366.7
+{txt}{space 7}lease {c |}{res}    196,982    74.02167    14.06468         40         97
+{txt}{space 2}avg_storey {c |}{res}    196,982    8.755749    5.934143          2         50
+
+{com}. 
+. *pairwise correlation, covariance estimates etc)
+
+. pwcorr real_price floor_area_sqm lease avg_storey 
+
+             {txt}{c |} real_p~e floor_~m    lease avg_st~y
+{hline 13}{c +}{hline 36}
+  real_price {c |} {res}  1.0000 
+{txt}floor_area~m {c |} {res}  0.5361   1.0000 
+       {txt}lease {c |} {res}  0.2856   0.1160   1.0000 
+  {txt}avg_storey {c |} {res}  0.3215  -0.0139   0.2746   1.0000 
+
+{com}. 
+. *covariance Matrix 
+
+. correlate real_price floor_area_sqm lease avg_storey, covariance
+{txt}(obs=196,982)
+
+             {c |} real_p~e floor_~m    lease avg_st~y
+{hline 13}{c +}{hline 36}
+  real_price {c |}{res}  30816.6
+{txt}floor_area~m {c |}{res}  2261.25  577.417
+       {txt}lease {c |}{res}  705.153  39.1945  197.815
+  {txt}avg_storey {c |}{res}  334.896  -1.9788  22.9211  35.2141
+
+
+{com}. 
+. *store covariance matrix in C
+
+. matrix C = r(C) 
+
+. *correlation matrix 
+
+. correlate real_price floor_area_sqm lease avg_storey 
+{txt}(obs=196,982)
+
+             {c |} real_p~e floor_~m    lease avg_st~y
+{hline 13}{c +}{hline 36}
+  real_price {c |}{res}   1.0000
+{txt}floor_area~m {c |}{res}   0.5361   1.0000
+       {txt}lease {c |}{res}   0.2856   0.1160   1.0000
+  {txt}avg_storey {c |}{res}   0.3215  -0.0139   0.2746   1.0000
+
+
+{com}. 
+.  * Excluding floor area , remaining lease is found to have the largest covariance with resale price, while average storey has the highest correlation 
+
+. 
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/sien/Desktop/SEM 7/EC4305/27 Nov 10.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}27 Nov 2025, 14:52:13
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
